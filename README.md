@@ -9,4 +9,4 @@ Le jeu se compile avec la commande `mvn compile`.
 
 Vous pouvez lancer une partie avec `mvn exec:java -Dexec.mainClass="upmc.pcg.Pokedeck"`
 
-L'énoncé et la date de rendu sont indiqués sur le [site du cours](hyc.io/teaching/java.html).
+L'énoncé et la date de rendu sont indiqués sur le [site du cours](http://hyc.io/teaching/java.html).
