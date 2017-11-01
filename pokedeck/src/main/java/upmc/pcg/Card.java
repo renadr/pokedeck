@@ -13,5 +13,7 @@ public abstract class Card {
         this.description = description;
     }
 
-
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
