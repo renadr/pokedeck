@@ -5,6 +5,8 @@ package upmc.pcg;
  */
 public class EnergyCard extends Card {
 
+    private Energy energyType;
+
     public EnergyCard(String name, String description) {
         super(name, description);
     }
