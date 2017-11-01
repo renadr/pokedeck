@@ -19,9 +19,22 @@
       <file leaf-file-name="Pokedeck.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Pokedeck.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Deck.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Deck.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="13" column="5" lean-forward="false" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+              <folding>
+                <element signature="e#186#187#0" expanded="true" />
+                <element signature="e#218#219#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -38,7 +51,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PokemonCard.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PokemonCard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/PokemonCard.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="379">
@@ -116,9 +129,10 @@
         <option value="$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Energy.java" />
         <option value="$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/EnergyCard.java" />
         <option value="$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Card.java" />
-        <option value="$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Pokedeck.java" />
         <option value="$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Attack.java" />
         <option value="$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/PokemonCard.java" />
+        <option value="$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Pokedeck.java" />
+        <option value="$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Deck.java" />
       </list>
     </option>
   </component>
@@ -607,12 +621,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1509555465135</updated>
-      <workItem from="1509555468162" duration="4872000" />
+      <workItem from="1509555468162" duration="5545000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4872000" />
+    <option name="totallyTimeSpent" value="5545000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -694,14 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Pokedeck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Card.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -725,6 +731,25 @@
         <state relative-caret-position="379">
           <caret line="23" column="51" lean-forward="false" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Pokedeck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pokedeck/src/main/java/upmc/pcg/Deck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="5" lean-forward="false" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding>
+            <element signature="e#186#187#0" expanded="true" />
+            <element signature="e#218#219#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
