@@ -11,14 +11,16 @@ public class PokemonCard extends Card {
     private int hp;
     private int stage;
     private PokemonCard evolutionOf;
-    private ArrayList<EnergyCard> energycardsList;
+    private ArrayList<EnergyCard> energiescardsList;
+    private ArrayList<Attack> attacksList;
 
-    public PokemonCard(String name, String description, Energy energyType, int hp, int stage, PokemonCard evolutionOf) {
+    public PokemonCard(String name, String description, Energy energyType, int hp, int stage, PokemonCard evolutionOf, ArrayList<Attack> attacksList) {
         super(name, description);
         this.energyType = energyType;
         this.hp = hp;
         this.stage = stage;
         this.evolutionOf = evolutionOf;
-        this.energycardsList = new ArrayList<>();
+        this.attacksList = attacksList;
+        this.energiescardsList = new ArrayList<>();
     }
 }
