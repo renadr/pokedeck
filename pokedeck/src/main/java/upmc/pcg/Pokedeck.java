@@ -18,8 +18,8 @@ import upmc.pcg.ui.GameUI;
 
 public class Pokedeck
 {
-  public static void main(String[] args)
-  {
+  public static void main(String[] args) {
+    System.out.println("aha");
     GameUI game_ui = new GameUI();
     game_ui.start();
   }
