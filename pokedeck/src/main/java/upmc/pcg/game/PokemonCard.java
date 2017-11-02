@@ -1,4 +1,4 @@
-package upmc.pcg;
+package upmc.pcg.game;
 
 import java.util.ArrayList;
 

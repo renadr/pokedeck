@@ -1,4 +1,4 @@
-package upmc.pcg;
+package upmc.pcg.game;
 
 /**
  * Created by Adrien on 01/11/2017.
