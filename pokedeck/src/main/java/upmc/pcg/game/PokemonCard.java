@@ -23,4 +23,9 @@ public class PokemonCard extends Card {
         this.attacksList = attacksList;
         this.energiescardsList = new ArrayList<>();
     }
+
+    @Override
+    public void create() {
+
+    }
 }
