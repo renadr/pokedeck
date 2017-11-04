@@ -21,36 +21,36 @@ public class Deck {
     /**
      * Display all cards in the collection in the form of a list
      */
-    public void list_all_cards(){
+    public void listAllCards(){
         Iterator<Card> cardIterator = cards.iterator();
 
-        if(this.get_size() < 1)
+        if(this.getSize() < 1)
             System.out.println("(!) The collection is empty for the moment");
 
         for(int cardIndex = 0; cardIterator.hasNext(); cardIndex++) {
             Card card = cardIterator.next();
-            System.out.println((cardIndex+1)+". "+card.get_name());
+            System.out.println((cardIndex+1)+". "+card.getName());
         }
     }
 
     /**
      * Add a card in the collection
      */
-    public void add_card(Card newCard){
+    public void addCard(Card newCard){
         cards.add(newCard);
     }
 
     /**
      * Return the card saved at index position in the list
      */
-    public Card get_card(int index) {
+    public Card getCard(int index) {
         return cards.get(index);
     }
 
     /**
      * Return the size of the collection
      */
-    public int get_size() {
+    public int getSize() {
         return cards.size();
     }
 
@@ -68,8 +68,8 @@ public class Deck {
         while(cardsIterator.hasNext() && boolVerify!=false) {
             currentCard = cardsIterator.next();
 
-            if(currentCard.get_cardNb()==cardNb)
-                if(currentCard.get_name()!=cardName)
+            if(currentCard.getCardNb()==cardNb)
+                if(currentCard.getName()!=cardName)
                     boolVerify = false;
         }
 

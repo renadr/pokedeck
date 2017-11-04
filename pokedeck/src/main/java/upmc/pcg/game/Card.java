@@ -14,21 +14,21 @@ public abstract class Card {
     /**
      * Return the name of the card in the form of a string
      */
-    public String get_name() {
+    public String getName() {
         return this.name;
     }
 
     /**
      * Return the cardType in the form of a string
      */
-    public String get_cardType() {
+    public String getCardType() {
         return this.cardType;
     }
 
     /**
      * Return the cardNb
      */
-    public int get_cardNb() {
+    public int getCardNb() {
         return this.cardNb;
     }
 

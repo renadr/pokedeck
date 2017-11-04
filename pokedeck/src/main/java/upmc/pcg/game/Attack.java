@@ -27,17 +27,17 @@ public class Attack {
             this.description = "The most basic attack a pokemon can do. Seriously, it's just a slap.";
         }
         else {
-            fill_attack();
+            fillAttack();
         }
     }
 
     /**
      * Ask the user how to fill the attacks
      */
-    private void fill_attack() {
+    private void fillAttack() {
         HashMap<String, Object> valuesForAttributes = new HashMap<>();
 
-        valuesForAttributes = MenuUI.attack_ask_all();
+        valuesForAttributes = MenuUI.attackAskAll();
 
         this.name = (String)valuesForAttributes.get("name");
         this.energies = (ArrayList<Energy>)valuesForAttributes.get("neededEnergy");
