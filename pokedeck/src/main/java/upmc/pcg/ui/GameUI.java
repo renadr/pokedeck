@@ -22,29 +22,29 @@ public class GameUI {
   private final Scanner console = new Scanner(System.in);
 
   public void start() {
-    print_welcome_msg();
-    ArrayList<String> names = ask_players_names();
+    printWelcomeMsg();
+    ArrayList<String> names = askPlayersNames();
     game.initialize(names);
     game.play();
   }
 
-  private ArrayList<String> ask_players_names() {
+  private ArrayList<String> askPlayersNames() {
     ArrayList<String> names = new ArrayList<String>();
     boolean boolAskName = true;
 
     System.out.println("****************************");
-    System.out.println("Prof. Oak : This is the first time i see you here !");
+    System.out.println("Prof. Oak : This is the first time I see you here !");
 
     while(boolAskName) {
-      names.add(ask_name());
-      boolAskName = menu_other_name();
+      names.add(askName());
+      boolAskName = menuOtherName();
     }
 
     System.out.println("Prof. Oak : Ok, so let's see your collection now !");
     return names;
   }
 
-  private String ask_name() {
+  private String askName() {
     String playerName = "";
 
     while(playerName.equals("")) {
@@ -59,7 +59,7 @@ public class GameUI {
   /**
    * Display a menu that ask if it needs another name
    */
-  private boolean menu_other_name() {
+  private boolean menuOtherName() {
     boolean boolOtherName = false;
     String response = "";
 
@@ -74,7 +74,7 @@ public class GameUI {
     return boolOtherName;
   }
 
-  private void print_welcome_msg() {
+  private void printWelcomeMsg() {
     System.out.println("****************************");
     System.out.println("* POKEDECK *");
     System.out.println("****************************");
@@ -82,7 +82,7 @@ public class GameUI {
     System.out.println("save, modify and manage your collection !\n");
   }
 
-  public static void clear_console_buffer(Scanner parConsole) {
+  public static void clearConsoleBuffer(Scanner parConsole) {
     if(parConsole.hasNextLine())
       parConsole.nextLine();
   }

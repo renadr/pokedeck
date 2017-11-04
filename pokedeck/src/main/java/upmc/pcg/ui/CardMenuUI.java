@@ -25,7 +25,7 @@ public class CardMenuUI {
     /**
      * Return the card selected by the user in a menu
      */
-    public static Card card_consult_menu(Deck collectionGiven, boolean onlyPokemonCard) {
+    public static Card cardConsultMenu(Deck collectionGiven, boolean onlyPokemonCard) {
         int chosenIndex = 1;
         boolean boolIndexOk = false;
 
@@ -36,14 +36,14 @@ public class CardMenuUI {
             }
             catch (InputMismatchException e) {
                 System.out.print("(!) Select a card number !\n");
-                GameUI.clear_console_buffer(console);
+                GameUI.clearConsoleBuffer(console);
             }
 
             if(chosenIndex>=0 && chosenIndex < collection.get_size()) {
                 if(!onlyPokemonCard)
                     boolIndexOk = true;
                 else {
-                    boolIndexOk = check_if_pokemon_card(collectionGiven, chosenIndex);
+                    boolIndexOk = checkIfPokemonCard(collectionGiven, chosenIndex);
                     if(!boolIndexOk)
                         System.out.print("(!) Select a pokemon card !\n");
                 }
@@ -61,7 +61,7 @@ public class CardMenuUI {
     /**
      * Check if the card at the index is a pokemon card
      */
-    private static boolean check_if_pokemon_card(Deck collectionGiven, int chosenIndex) {
+    private static boolean checkIfPokemonCard(Deck collectionGiven, int chosenIndex) {
         boolean isPokemonCard = false;
 
         if(collectionGiven.get_card(chosenIndex).get_cardType().equals("pokemon"));
@@ -76,20 +76,20 @@ public class CardMenuUI {
     public static HashMap<String, Object> ask_pokemonCard_attributes() {
         HashMap<String, Object> valuesForAttributes = new HashMap<>();
 
-        GameUI.clear_console_buffer(console);
+        GameUI.clearConsoleBuffer(console);
 
-        valuesForAttributes.put("name", card_ask_name());
-        valuesForAttributes.put("specialType", card_ask_energyType());
-        valuesForAttributes.put("hp", card_ask_hp());
-        valuesForAttributes.put("stage", card_ask_stage());
+        valuesForAttributes.put("name", cardAskName());
+        valuesForAttributes.put("specialType", cardAskEnergyType());
+        valuesForAttributes.put("hp", cardAskHp());
+        valuesForAttributes.put("stage", cardAskStage());
         if(!valuesForAttributes.get("stage").equals(0))
-            valuesForAttributes.put("evolvesFrom", card_ask_evolvesFrom());
+            valuesForAttributes.put("evolvesFrom", cardAskEvolvesFrom());
         else
             valuesForAttributes.put("evolvesFrom", null);
-        valuesForAttributes.put("attacks", card_ask_attacks());
-        valuesForAttributes.put("weaknessType", card_ask_weaknessType());
-        valuesForAttributes.put("resistanceType", card_ask_resistanceType());
-        valuesForAttributes.put("cardNb", card_ask_cardNb((String)valuesForAttributes.get("name")));
+        valuesForAttributes.put("attacks", cardAskAttacks());
+        valuesForAttributes.put("weaknessType", cardAskWeaknessType());
+        valuesForAttributes.put("resistanceType", cardAskResistanceType());
+        valuesForAttributes.put("cardNb", cardAskCardNb((String)valuesForAttributes.get("name")));
 
         return valuesForAttributes;
     }
@@ -97,7 +97,7 @@ public class CardMenuUI {
     /**
      * Explicit
      */
-    private static String card_ask_name() {
+    private static String cardAskName() {
         String result = "Default";
 
         do {
@@ -111,12 +111,12 @@ public class CardMenuUI {
     /**
      * Explicit
      */
-    private static String card_ask_energyType() {
+    private static String cardAskEnergyType() {
         String result = "Default";
 
         System.out.println(" * Energy type : ");
-        MenuUI.print_energies();
-        result = EnergyCard.CARD_TYPES[MenuUI.ask_energy()];
+        MenuUI.printEnergies();
+        result = EnergyCard.CARD_TYPES[MenuUI.askEnergy()];
 
         return result;
     }
@@ -124,7 +124,7 @@ public class CardMenuUI {
     /**
      * Explicit
      */
-    private static int card_ask_hp() {
+    private static int cardAskHp() {
         int result = 0;
 
         do {
@@ -134,7 +134,7 @@ public class CardMenuUI {
             }
             catch (InputMismatchException e) {
                 System.out.print("(!) Select a number !\n");
-                GameUI.clear_console_buffer(console);
+                GameUI.clearConsoleBuffer(console);
             }
         } while(result<=0);
 
@@ -144,7 +144,7 @@ public class CardMenuUI {
     /**
      * Explicit
      */
-    private static int card_ask_stage() {
+    private static int cardAskStage() {
         int result = 0;
 
         do {
@@ -154,7 +154,7 @@ public class CardMenuUI {
             }
             catch (InputMismatchException e) {
                 System.out.print("(!) Select a number !\n");
-                GameUI.clear_console_buffer(console);
+                GameUI.clearConsoleBuffer(console);
             }
         } while(result<0);
 
@@ -164,12 +164,12 @@ public class CardMenuUI {
     /**
      * Explicit, collection need to be set
      */
-    private static Card card_ask_evolvesFrom() {
+    private static Card cardAskEvolvesFrom() {
         Card result = null;
 
         collection.list_all_cards();
         if(collection.get_size() < 1)
-            result = card_consult_menu(collection, true);
+            result = cardConsultMenu(collection, true);
 
         return result;
     }
@@ -177,7 +177,7 @@ public class CardMenuUI {
     /**
      * Ask to create attacks for the pokemon
      */
-    private static ArrayList<Attack> card_ask_attacks() {
+    private static ArrayList<Attack> cardAskAttacks() {
         ArrayList<Attack> result = new ArrayList<>();
         Attack newAttack = null;
         String otherAttack = "n";
@@ -189,7 +189,7 @@ public class CardMenuUI {
             result.add(newAttack);
 
             do {
-                GameUI.clear_console_buffer(console);
+                GameUI.clearConsoleBuffer(console);
                 System.out.println("Do you want to add another attack? (y/n) ");
                 otherAttack = console.nextLine();
             }while(!otherAttack.equals("n") && !otherAttack.equals("y"));
@@ -202,12 +202,12 @@ public class CardMenuUI {
     /**
      * Explicit
      */
-    private static String card_ask_weaknessType() {
+    private static String cardAskWeaknessType() {
         String result = "Default";
 
         System.out.println(" * Weakness type : ");
-        MenuUI.print_energies();
-        result = EnergyCard.ENERGY_TYPES[MenuUI.ask_energy()];
+        MenuUI.printEnergies();
+        result = EnergyCard.ENERGY_TYPES[MenuUI.askEnergy()];
 
         return result;
     }
@@ -215,12 +215,12 @@ public class CardMenuUI {
     /**
      * Explicit
      */
-    private static String card_ask_resistanceType() {
+    private static String cardAskResistanceType() {
         String result = "Default";
 
         System.out.println(" * Resistance type : ");
-        MenuUI.print_energies();
-        result = EnergyCard.ENERGY_TYPES[MenuUI.ask_energy()];
+        MenuUI.printEnergies();
+        result = EnergyCard.ENERGY_TYPES[MenuUI.askEnergy()];
 
         return result;
     }
@@ -228,7 +228,7 @@ public class CardMenuUI {
     /**
      * Explicit, verify if the cardNb is available in the collection
      */
-    private static int card_ask_cardNb(String actualCardName) {
+    private static int cardAskCardNb(String actualCardName) {
         int result = -1;
 
         do {
@@ -238,7 +238,7 @@ public class CardMenuUI {
             }
             catch (InputMismatchException e) {
                 System.out.print("(!) Select a positive number !\n");
-                GameUI.clear_console_buffer(console);
+                GameUI.clearConsoleBuffer(console);
             }
         } while(result<=0 && !collection.nbCardAvailable(actualCardName, result));
 

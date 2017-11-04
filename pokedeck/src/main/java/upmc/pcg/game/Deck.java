@@ -9,70 +9,30 @@ import java.util.List;
 public class Deck {
 
     private String owner;
-    private List<Card> cards = new ArrayList<Card>();
+    private ArrayList<Card> cards;
 
-    /**
-     * Constructor that create a collection for the player with his name
-     */
     public Deck(String name) {
         this.owner = name;
+        this.cards = new ArrayList<Card>();
     }
 
-    /**
-     * Display all cards in the collection in the form of a list
-     */
-    public void list_all_cards(){
-        Iterator<Card> cardIterator = cards.iterator();
-
-        if(this.get_size() < 1)
-            System.out.println("(!) The collection is empty for the moment");
-
-        for(int cardIndex = 0; cardIterator.hasNext(); cardIndex++) {
-            Card card = cardIterator.next();
-            System.out.println((cardIndex+1)+". "+card.get_name());
+    public void listAllCards(){
+        System.out.println("Your deck : ");
+        for(Card c : this.cards) {
+            System.out.println(c.getName());
         }
     }
 
-    /**
-     * Add a card in the collection
-     */
-    public void add_card(Card newCard){
+    public void addCard(Card newCard){
         cards.add(newCard);
     }
 
-    /**
-     * Return the card saved at index position in the list
-     */
-    public Card get_card(int index) {
+    public Card getCard(int index) {
         return cards.get(index);
     }
 
-    /**
-     * Return the size of the collection
-     */
-    public int get_size() {
+    public int getSize() {
         return cards.size();
     }
 
-    /**
-     * Verify if a cardNb already exists in the collection
-     * if it doesn't exist : return true
-     * if it already exist but it have the same cardName : return true
-     * if it already exist and don't have the same cardName : return false
-     */
-    public boolean nbCardAvailable(String cardName, int cardNb) {
-        boolean boolVerify = true;
-        Card currentCard = null;
-        Iterator<Card> cardsIterator = this.cards.iterator();
-
-        while(cardsIterator.hasNext() && boolVerify!=false) {
-            currentCard = cardsIterator.next();
-
-            if(currentCard.get_cardNb()==cardNb)
-                if(currentCard.get_name()!=cardName)
-                    boolVerify = false;
-        }
-
-        return boolVerify;
-    }
 }

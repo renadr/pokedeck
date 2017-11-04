@@ -1,5 +1,7 @@
 package upmc.pcg.game;
 
+import upmc.pcg.EnergyCard;
+
 import java.util.ArrayList;
 
 /**
@@ -15,7 +17,7 @@ public class PokemonCard extends Card {
     private ArrayList<Attack> attacksList;
 
     public PokemonCard(String name, String description, Energy energyType, int hp, int stage, PokemonCard evolutionOf, ArrayList<Attack> attacksList) {
-        super(name, description);
+        super(name, description,"pokemon");
         this.energyType = energyType;
         this.hp = hp;
         this.stage = stage;
@@ -24,8 +26,4 @@ public class PokemonCard extends Card {
         this.energiescardsList = new ArrayList<>();
     }
 
-    @Override
-    public void create() {
-
-    }
 }

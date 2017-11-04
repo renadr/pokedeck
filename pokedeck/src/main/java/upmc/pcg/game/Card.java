@@ -5,35 +5,26 @@ package upmc.pcg.game;
  */
 public abstract class Card {
 
-    protected String name = "Default";
+    protected String name;
     protected String cardType;
-    protected String specialType; //Pokemon type, Trainer type or Energy type
-    protected int cardNb;
-    public static String CARD_TYPES[] = {"pokemon", "trainer", "energy"};
+    protected String description;
 
-    /**
-     * Return the name of the card in the form of a string
-     */
-    public String get_name() {
+    public Card(String name,String description,String cardType) {
+        this.name = name;
+        this.description = description;
+        this.cardType = cardType;
+    }
+
+    public String getName() {
         return this.name;
     }
 
-    /**
-     * Return the cardType in the form of a string
-     */
-    public String get_cardType() {
+    public String getCardType() {
         return this.cardType;
     }
 
-    /**
-     * Return the cardNb
-     */
-    public int get_cardNb() {
-        return this.cardNb;
+    public String getDescription() {
+        return description;
     }
 
-    /**
-     * Create a card (pokemon, trainer or energy) with every attributes
-     */
-    public abstract void create();
 }

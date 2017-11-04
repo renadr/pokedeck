@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import upmc.pcg.EnergyCard;
 import upmc.pcg.game.*;
 
 public final class MenuUI {
@@ -16,11 +17,11 @@ public final class MenuUI {
     /**
      * Display the main choice menu that ask what the player want to do with his collection
      */
-    public static int collection_main_menu(String playerName) {
+    public static int collectionMainMenu(String playerName) {
         int choiceMenu = -1;
 
-        print_collection_menu_msg(playerName);
-        choiceMenu = ask_collection_menu();
+        printCollectionMenuMsg(playerName);
+        choiceMenu = askCollectionMenu();
 
         return choiceMenu;
     }
@@ -28,7 +29,7 @@ public final class MenuUI {
     /**
      * Print messages at the beginning of the collection main menu
      */
-    private static void print_collection_menu_msg(String playerName) {
+    private static void printCollectionMenuMsg(String playerName) {
         System.out.println("****************************");
         System.out.println("* "+playerName+"'s Collection");
         System.out.println("****************************");
@@ -42,7 +43,7 @@ public final class MenuUI {
     /**
      * Ask the player what choice he want to do in the collection main menu
      */
-    private static int ask_collection_menu() {
+    private static int askCollectionMenu() {
         int choice = 0;
 
         do {
@@ -52,7 +53,7 @@ public final class MenuUI {
             }
             catch (InputMismatchException e) {
                 System.out.print("(!) Select a number !\n");
-                GameUI.clear_console_buffer(console);
+                GameUI.clearConsoleBuffer(console);
             }
         }while(!(choice>=1 && choice <=4));
 
@@ -63,11 +64,11 @@ public final class MenuUI {
      * Display the creation card menu
      * return the created card
      */
-    public static Card add_card_menu() {
+    public static Card addCardMenu() {
         Card createdCard = null;
 
         //ask what type of card
-        createdCard = ask_type_card();
+        createdCard = askTypeCard();
         //run create() method from card
         createdCard.create();
 
@@ -77,12 +78,12 @@ public final class MenuUI {
     /**
      * Ask the type of the card and return a card of this type (pokemon, trainer, energy)
      */
-    private static Card ask_type_card() {
+    private static Card askTypeCard() {
         String chosenType = "";
         Card card = null;
 
-        chosenType = print_type_card_msg();
-        card = switch_card_type(chosenType);
+        chosenType = printTypeCardMsg();
+        card = switchCardType(chosenType);
 
         return card;
     }
@@ -91,15 +92,15 @@ public final class MenuUI {
      * Print the message at the beginning of the menu to add a card
      * return the chosen type by the player
      */
-    private static String print_type_card_msg() {
+    private static String printTypeCardMsg() {
         String choice = "";
 
         System.out.println("****************************");
         System.out.println("Card creation :");
-        choice = print_option_type_card();
+        choice = printOptionTypeCard();
 
         if(choice == null)
-            choice = print_type_card_msg();
+            choice = printTypeCardMsg();
 
         return choice;
     }
@@ -108,7 +109,7 @@ public final class MenuUI {
      * Print the 3 types of card for the creation card menu
      * return the choice of the player
      */
-    private static String print_option_type_card() {
+    private static String printOptionTypeCard() {
         String tabTypes[] = Card.CARD_TYPES;
         int choice = 0;
 
@@ -124,7 +125,7 @@ public final class MenuUI {
             }
             catch (InputMismatchException e) {
                 System.out.print("(!) Select a number !\n");
-                GameUI.clear_console_buffer(console);
+                GameUI.clearConsoleBuffer(console);
             }
         }
 
@@ -134,7 +135,7 @@ public final class MenuUI {
     /**
      * Create a card following the given type
      */
-    private static Card switch_card_type(String chosenType) {
+    private static Card switchCardType(String chosenType) {
         Card card = null;
 
         switch(chosenType) {
@@ -159,10 +160,10 @@ public final class MenuUI {
      * Do all the actions when the user want to consult the collection
      * in the main menu
      */
-    public static void action_consult_menu(Deck currentCollection) {
+    public static void actionConsultMenu(Deck currentCollection) {
         Card currentCard = null;
 
-        currentCard = collection_consult_menu(currentCollection);
+        currentCard = collectionConsultMenu(currentCollection);
 
         if(currentCard != null)
             System.out.println("card : "+currentCard.toString());
@@ -174,7 +175,7 @@ public final class MenuUI {
      * Display the content of the collection and ask the user which card he wants to consult
      * return the chosen card
      */
-    public static Card collection_consult_menu(Deck collection) {
+    public static Card collectionConsultMenu(Deck collection) {
         Card chosenCard = null;
         String userConsultCard = "";
 
@@ -182,7 +183,7 @@ public final class MenuUI {
         System.out.println("Collection content :\n");
         collection.list_all_cards();
 
-        GameUI.clear_console_buffer(console);
+        GameUI.clearConsoleBuffer(console);
         while(userConsultCard.equals("") || (!userConsultCard.equals("n") && !userConsultCard.equals("y"))) {
             System.out.println("Do you want to consult a card ? (y/n)");
             userConsultCard = console.nextLine();
@@ -190,7 +191,7 @@ public final class MenuUI {
 
         if(userConsultCard.equals("y")) {
             if(collection.get_size() != 0)
-                chosenCard = CardMenuUI.card_consult_menu(collection, false);
+                chosenCard = CardMenuUI.cardConsultMenu(collection, false);
             else
                 System.out.println("(!) You don't have cards in your collection yet");
         }
@@ -201,7 +202,7 @@ public final class MenuUI {
     /**
      * Display the messages at the beginning of the creation of a card step by step
      */
-    public static void print_create_card_msg(String cardType) {
+    public static void printCreateCardMsg(String cardType) {
         System.out.println("****************************");
         System.out.println("Create your "+cardType+" card :\n");
         System.out.println("Prof. Oak : Here you can create your card step by step ! Let's Go !\n");
@@ -210,13 +211,13 @@ public final class MenuUI {
     /**
      * Ask the user to fill every attributes of an attack
      */
-    public static HashMap<String, Object> attack_ask_all() {
+    public static HashMap<String, Object> attackAskAll() {
         HashMap<String, Object> valuesForAttributes = new HashMap<>();
 
         System.out.println("****************************");
         System.out.println("Attack creation : \n");
-        valuesForAttributes.put("name", ask_name());
-        valuesForAttributes.put("neededEnergy", ask_neededEnergy());
+        valuesForAttributes.put("name", askName());
+        valuesForAttributes.put("neededEnergy", askNeededEnergy());
         valuesForAttributes.put("damage", ask_dmg());
         valuesForAttributes.put("description", ask_description());
         System.out.println("****************************");
@@ -227,10 +228,10 @@ public final class MenuUI {
     /**
      * Explicit
      */
-    private static String ask_name() {
+    private static String askName() {
         String result = "";
 
-        GameUI.clear_console_buffer(console);
+        GameUI.clearConsoleBuffer(console);
 
         while(result.equals("")) {
             System.out.println(" * Name : ");
@@ -243,20 +244,20 @@ public final class MenuUI {
     /**
      * Explicit
      */
-    private static ArrayList<String> ask_neededEnergy() {
+    private static ArrayList<String> askNeededEnergy() {
         ArrayList<String> result = new ArrayList<>();
         String otherEnergy = "n";
         int chosenEnergyIndex = 0;
 
         System.out.println(" * Needed energy : ");
 
-        print_energies();
+        printEnergies();
         do {
-            chosenEnergyIndex = ask_energy();
+            chosenEnergyIndex = askEnergy();
             result.add(Energy.valueOf(chosenEnergyIndex));
 
             do {
-                GameUI.clear_console_buffer(console);
+                GameUI.clearConsoleBuffer(console);
                 System.out.println("Do you want to add another energy ? (y/n) ");
                 otherEnergy = console.nextLine();
             }while(!otherEnergy.equals("n") && !otherEnergy.equals("y"));
@@ -269,7 +270,7 @@ public final class MenuUI {
     /**
      * Print all energies in the form of a list
      */
-    public static void print_energies() {
+    public static void printEnergies() {
         final int MAX_ENERGY = Energy.values().length;
 
         for(int i=1; i<=MAX_ENERGY; i++) {
@@ -284,7 +285,7 @@ public final class MenuUI {
     /**
      * Ask the user what type of energy he want to pick, return the index of the chosen energy
      */
-    public static int ask_energy() {
+    public static int askEnergy() {
         int result = 0;
 
         do {
@@ -294,7 +295,7 @@ public final class MenuUI {
             }
             catch (InputMismatchException e) {
                 System.out.print("(!) Select a number in the list\n");
-                GameUI.clear_console_buffer(console);
+                GameUI.clearConsoleBuffer(console);
             }
             if(result> Energy.values().length) {
                 System.out.print("(!) This number is too high\n");
@@ -329,7 +330,7 @@ public final class MenuUI {
     public static String ask_description() {
         String result = "";
 
-        GameUI.clear_console_buffer(console);
+        GameUI.clearConsoleBuffer(console);
 
         do {
             System.out.println(" * Description : ");

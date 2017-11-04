@@ -6,11 +6,8 @@ package upmc.pcg.game;
 public class TrainerCard extends Card {
 
     public TrainerCard(String name, String description) {
-        super(name, description);
+
+        super(name, description,"trainer");
     }
 
-    @Override
-    public void create() {
-
-    }
 }
