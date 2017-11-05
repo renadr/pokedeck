@@ -23,5 +23,10 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>upmc.pcg</groupId>
+          <artifactId>pokedeck</artifactId>
+          <version>0.0.1</version>
+      </dependency>
   </dependencies>
 </project>
