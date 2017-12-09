@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
  */
 public class DeckTest {
     @Test
-    public void get_cards() throws Exception {
+    public void test_get_cards() throws Exception {
 
     }
 

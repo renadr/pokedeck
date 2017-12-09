@@ -7,12 +7,12 @@ import static org.junit.Assert.*;
  */
 public class CardTest {
     @org.junit.Test
-    public void get_map_card() throws Exception {
+    public void test_get_map_card() throws Exception {
 
     }
 
     @org.junit.Test
-    public void get_type_card() throws Exception {
+    public void test_get_type_card() throws Exception {
 
     }
 
