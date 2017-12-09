@@ -1,5 +1,11 @@
 package upmc.pcg.game;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
 /**
  *
  * @author Raphaël Bretzner
@@ -34,6 +40,23 @@ public class Player {
 
     protected String get_password() {
         return password;
+    }
+
+    public void save_deck() {
+        try {
+            FileOutputStream fos= new FileOutputStream("src/main/java/upmc/pcg/game/tmp/deck_"+this.name+".ser");
+            ObjectOutputStream oos= new ObjectOutputStream(fos);
+            oos.writeObject(this.deck.get_cards());
+            oos.close();
+            fos.close();
+            System.out.println("Save is done !");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void load_deck() {
+        
     }
 }
 

@@ -3,13 +3,14 @@ package upmc.pcg.game;
 import upmc.pcg.ui.CreationCardUI;
 import upmc.pcg.ui.GameUI;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Created by Adrien on 01/11/2017.
  */
-public class Card {
+public class Card implements Serializable {
     protected HashMap map_card = set_map_card();
     protected String type, name, energy_type, description;
     private static HashMap<Integer,String> energies = new HashMap<Integer, String>(){

@@ -98,7 +98,9 @@ public class GameUI implements TestsUI {
     print("Do you want to :");
     print("1- Add a card to your deck");
     print("2- See your deck");
-    print("3- Leave the game");
+    print("3- Save your deck");
+    print("4- Load a deck (you have to keep the same pseudo than the last time)");
+    print("5- Leave the game");
     choice = TestsUI.test_int(-1, 1, 3);
 
     switch(choice){
@@ -109,6 +111,12 @@ public class GameUI implements TestsUI {
         print_deck(deck);
         break;
       case 3:
+        this.game.get_player().save_deck();
+        break;
+      case 4:
+        this.game.get_player().load_deck();
+        break;
+      case 5:
         goOn = false;
     }
   }
@@ -167,9 +175,9 @@ public class GameUI implements TestsUI {
       choice=TestsUI.test_string(2);
       if (choice.charAt(0) == 'S') {
         index=-3;
-      }else if(choice.charAt(0) == 'T') {
+      } else if(choice.charAt(0) == 'T') {
         index=-4;
-      }else if (choice.charAt(0) != 'Q'){
+      } else if (choice.charAt(0) != 'Q'){
         try{
           index = Integer.parseInt(choice);
           if(index > deck.size() || index < 1){
@@ -180,7 +188,7 @@ public class GameUI implements TestsUI {
           index=-1;
           print("Please enter a good value");
         }
-      }else{
+      } else{
         index=-2;
       }
     }while( index == -1 );

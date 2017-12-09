@@ -1,5 +1,6 @@
 package upmc.pcg.game;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 /**
  * Created by Adrien on 01/11/2017.
@@ -25,5 +26,11 @@ public class Deck {
     }
     public ArrayList<Card> get_cards(){
         return this.cards;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer sb =  new StringBuffer() ;
+        return sb.append(this.cards).toString() ;
     }
 }
