@@ -1,9 +1,6 @@
 package upmc.pcg.game;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -42,21 +39,40 @@ public class Player {
         return password;
     }
 
-    public void save_deck() {
+    public String save_deck() {
+        String msg;
         try {
             FileOutputStream fos= new FileOutputStream("src/main/java/upmc/pcg/game/tmp/deck_"+this.name+".ser");
             ObjectOutputStream oos= new ObjectOutputStream(fos);
             oos.writeObject(this.deck.get_cards());
             oos.close();
             fos.close();
-            System.out.println("Save is done !");
+            msg = "Save is done !";
         } catch (IOException e) {
-            e.printStackTrace();
+            msg = "Error during saving your deck.";
         }
+        return msg;
     }
 
-    public void load_deck() {
-        
+    public String load_deck() {
+        ArrayList<Card> load_deck= new ArrayList<Card>();
+        String msg;
+        try {
+            FileInputStream fis = new FileInputStream("src/main/java/upmc/pcg/game/tmp/deck_"+this.name+".ser");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            load_deck = (ArrayList) ois.readObject();
+            ois.close();
+            fis.close();
+            msg = "Success !";
+        } catch(IOException ioe){
+            ioe.printStackTrace();
+            msg = "Error";
+        } catch(ClassNotFoundException c){
+            c.printStackTrace();
+            msg = "Error during the load your previous deck";
+        }
+        this.deck.set_cards(load_deck);
+        return msg;
     }
 }
 

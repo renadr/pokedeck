@@ -101,7 +101,7 @@ public class GameUI implements TestsUI {
     print("3- Save your deck");
     print("4- Load a deck (you have to keep the same pseudo than the last time)");
     print("5- Leave the game");
-    choice = TestsUI.test_int(-1, 1, 3);
+    choice = TestsUI.test_int(-1, 1, 5);
 
     switch(choice){
       case 1:
@@ -111,13 +111,14 @@ public class GameUI implements TestsUI {
         print_deck(deck);
         break;
       case 3:
-        this.game.get_player().save_deck();
+        System.out.println(this.game.get_player().save_deck());
         break;
       case 4:
-        this.game.get_player().load_deck();
+        System.out.println(this.game.get_player().load_deck());
         break;
       case 5:
         goOn = false;
+        break;
     }
   }
 

@@ -28,6 +28,10 @@ public class Deck {
         return this.cards;
     }
 
+    public void set_cards(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+
     @Override
     public String toString() {
         StringBuffer sb =  new StringBuffer() ;
