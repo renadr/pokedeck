@@ -25,7 +25,7 @@ public class Attack {
     }
 
     public String get_energy_needed() {
-        System.out.println("On en a besoin");
+        System.out.println("We need this");
         String str = "";
         for (int i = 0; i < this.energy_needed.size(); i++) {
             str += this.energy_needed.get(i) + " ";
