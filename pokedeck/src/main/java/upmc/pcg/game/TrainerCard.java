@@ -3,10 +3,10 @@ package upmc.pcg.game;
 /**
  * Created by Adrien on 01/11/2017.
  */
-public class Trainer extends Card {
+public class TrainerCard extends Card {
 
     @SuppressWarnings("unchecked")
-    public Trainer(){
+    public TrainerCard(){
         this.map_card.put("card_type", this.type="TRAINER");
         this.name=set_name();
         this.description=set_description();

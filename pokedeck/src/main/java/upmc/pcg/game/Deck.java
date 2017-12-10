@@ -1,6 +1,5 @@
 package upmc.pcg.game;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 /**
  * Created by Adrien on 01/11/2017.
@@ -19,7 +18,7 @@ public class Deck {
                 c =new PokemonCard();
                 break;
             case "TRAINER":
-                c = new Trainer();
+                c = new TrainerCard();
                 break;
         }
         cards.add(c);

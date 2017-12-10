@@ -61,7 +61,7 @@ public class GameUI implements TestsUI {
   }
 
   private char print_welcome_msg() {
-    print("Hi Trainer ! Welcome to the arena !");
+    print("Hi TrainerCard ! Welcome to the arena !");
 //    print("Are you already registered? Y/N");
 //    char[] ok = {'Y', 'N'};
 //    char choice = TestsUI.test_char(ok);
@@ -218,7 +218,7 @@ public class GameUI implements TestsUI {
       print("What kind of cards should we display?");
       print("1 : Energy");
       print("2 : Pokemon");
-      print("3 : Trainer");
+      print("3 : TrainerCard");
       int choiceType=TestsUI.test_int(-1, 1, 3);
       choiceType--;
       String[] types = {"energy","pokemon","trainer"};
