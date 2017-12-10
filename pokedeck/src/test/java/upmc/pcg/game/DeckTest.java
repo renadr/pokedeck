@@ -3,6 +3,9 @@ package upmc.pcg.game;
 import junit.framework.TestCase;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 /**
@@ -10,8 +13,11 @@ import static org.junit.Assert.*;
  */
 public class DeckTest extends TestCase {
 
-    public DeckTest() {
+    Deck theDeck;
 
+    public DeckTest() {
+        theDeck = new Deck();
+        this.theDeck.set_cards(new ArrayList(Arrays.asList(new Card(),new Card(),new Card())));
     }
 
     @Test
