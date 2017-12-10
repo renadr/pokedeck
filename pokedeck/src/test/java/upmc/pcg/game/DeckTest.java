@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  */
 public class DeckTest extends TestCase {
 
-    Deck theDeck;
+    private Deck theDeck;
 
     public DeckTest() {
         theDeck = new Deck();
