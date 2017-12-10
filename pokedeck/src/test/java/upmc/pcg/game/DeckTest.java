@@ -14,15 +14,17 @@ import static org.junit.Assert.*;
 public class DeckTest extends TestCase {
 
     private Deck theDeck;
+    private ArrayList<Card> cards;
 
     public DeckTest() {
-        theDeck = new Deck();
-        this.theDeck.set_cards(new ArrayList(Arrays.asList(new Card(),new Card(),new Card())));
+        this.theDeck = new Deck();
+        this.cards = new ArrayList(Arrays.asList(new Card(),new Card(),new Card()));
+        this.theDeck.set_cards(this.cards);
     }
 
     @Test
     public void test_get_cards() throws Exception {
-
+        assertEquals(this.theDeck.get_cards(),this.cards);
     }
 
 }
